@@ -7,13 +7,61 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="gallary-wrap">
+        <img class="btn" src="Images/backbtn.png" id="backBtn">
+
+        <div class="gallary">
+            <div>
+                <span><img class="images" src="Images/I1.jpg"></span>
+                <span><img class="images" src="Images/I2.webp"></span>
+                <span><img class="images" src="Images/I3.jpg"></span>
+            </div>
     
-    <div class="gallary">
-        <div>
-            <span><img class="images" src="Images/I1.jpg"></span>
-            <span><img class="images" src="Images/I2.webp"></span>
-            <span><img class="images" src="Images/I3.jpg"></span>
+            <div>
+                <span><img class="images" src="Images/I4.jpg"></span>
+                <span><img class="images" src="Images/I5.jpg"></span>
+                <span><img class="images" src="Images/I6.avif"></span>
+            </div>
+    
+            <div>
+                <span><img class="images" src="Images/I7.jpeg"></span>
+                <span><img class="images" src="Images/I8.jpg"></span>
+                <span><img class="images" src="Images/I9.jpeg"></span>
+            </div>
+    
+            <div>
+                <span><img class="images" src="Images/I10.webp"></span>
+                <span><img class="images" src="Images/I11.jpg"></span>
+                <span><img class="images" src="Images/I12.jpg"></span>
+            </div>
         </div>
+        
+        <img class="btn"   src="Images/nextbtn.png" id="nextBtn">
     </div>
+
+    <script>
+
+        let scrollContainer = document.querySelector(".gallary");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
+        const scrollDistance = scrollContainer.offsetWidth;
+        scrollContainer.addEventListener("wheel", (evt) =>
+        {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+            scrollContainer.style.scrollBehavior = "auto";
+        });
+
+        nextBtn.addEventListener("click", ()=>{
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft += scrollDistance;
+        });
+
+        backBtn.addEventListener("click", ()=>{
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft -= scrollDistance;
+        });
+    </script>
+    
 </body>
 </html>
